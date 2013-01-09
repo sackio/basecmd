@@ -1,0 +1,19 @@
+<script type="text/javascript">
+
+</script>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/bower_components/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/bower_components/jsbelt/lib/belt.js" type="text/javascript" charset="utf-8"></script>
+<script src="/bower_components/underscore/underscore-min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/bower_components/underscore.string/dist/underscore.string.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/bower_components/jsbelt/lib/belt.js" type="text/javascript" charset="utf-8"></script>
+<script src="/bower_components/async/dist/async.js" type="text/javascript" charset="utf-8"></script>
+<script src="/bower_components/moment/min/moment.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/bower_components/moment-timezone/builds/moment-timezone-with-data.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/bower_components/backbone/backbone-min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/bower_components/bootheel/bootheel.js" type="text/javascript" charset="utf-8"></script>
+<script src="/partials.js" type="text/javascript" charset="utf-8"></script>
+<% if (typeof extras !== 'undefined') _.each(extras, function(e){ %>
+  <script src="<%= e %>" type="text/javascript" charset="utf-8"></script>
+<% }) %>

@@ -1,0 +1,26 @@
+{
+  "name": "base",
+  "dependencies": {
+    "underscore": "*"
+  , "underscore.string": "*"
+  , "jsbelt": "*"
+  , "moment": "*"
+  , "moment-timezone": "*"
+  , "jquery": "*"
+  , "async": "*"
+  , "backbone": "*"
+  , "bootstrap": "*"
+  , "bootbox": "*"
+  , "fontawesome": "*"
+  , "bootheel": "*"
+  , "query-object": "*"
+  },
+  "ignore": [
+    "test",
+    "example",
+    "lib",
+    "Gruntfile.js",
+    "package.json",
+    "grunt"
+  ]
+}
