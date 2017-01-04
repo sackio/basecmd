@@ -1,0 +1,52 @@
+#!/usr/bin/env node
+
+var Path = require('path')
+  , Optionall = require('optionall')
+  , FS = require('fs')
+  , Async = require('async')
+  , _ = require('underscore')
+  , Belt = require('jsbelt')
+  , Util = require('util')
+  , Winston = require('winston')
+  , Events = require('events')
+  , Spinner = require('its-thinking')
+  , CP = require('child_process')
+  , Request = require('request')
+;
+
+var O = new Optionall({
+                       '__dirname': Path.resolve(module.filename + '/../..')
+                     , 'file_priority': [
+                         'package.json'
+                       , 'environment.json'
+                       , 'credentials.json'
+                       , 'config.json'
+                       ]
+                     });
+
+var Log = new Winston.Logger();
+Log.add(Winston.transports.Console, {'level': 'debug', 'colorize': true, 'timestamp': false});
+
+var Spin = new Spinner(4);
+
+O.host = O.host.replace(/https?:\/\//, '');
+
+var GB = _.defaults(O.argv, {
+  'template': _.template(FS.readFileSync(Path.join(O.__dirname, '/resources/assets/nginx.conf.template')).toString('utf8'))
+, 'config_path': Path.join(O.__dirname, '/resources/config/nginx.' + O.environment + '.conf')
+, 'nginx_path': '/etc/nginx/sites-enabled/' + O.host
+});
+
+Spin.start();
+
+Async.waterfall([
+  function(cb){
+    FS.writeFileSync(GB.config_path, GB.template(O));
+    CP.execSync('sudo ln -sf "' + GB.config_path + '" "' + GB.nginx_path + '"');
+    return cb();
+  }
+], function(err){
+  Spin.stop();
+  if (err) Log.error(err);
+  return process.exit(err ? 1 : 0);
+});
