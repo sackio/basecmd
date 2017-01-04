@@ -13,7 +13,8 @@
 <script src="/bower_components/moment-timezone/builds/moment-timezone-with-data.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="/bower_components/backbone/backbone-min.js" type="text/javascript" charset="utf-8"></script>
 <script src="/bower_components/bootheel/bootheel.js" type="text/javascript" charset="utf-8"></script>
-<script src="/partials.js" type="text/javascript" charset="utf-8"></script>
-<% if (typeof extras !== 'undefined') _.each(extras, function(e){ %>
+<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/templates.js" type="text/javascript" charset="utf-8"></script>
+<% if (typeof js_files !== 'undefined') _.each(js_files, function(e){ %>
   <script src="<%= e %>" type="text/javascript" charset="utf-8"></script>
 <% }) %>

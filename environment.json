@@ -20,7 +20,7 @@
           "./lib/views"
         ]
       , "public": [
-          "./lib/public"
+          "./public"
         , "./bower_components"
         ]
       , "controllers": [

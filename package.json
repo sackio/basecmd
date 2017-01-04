@@ -22,7 +22,7 @@
   , "jsbelt": "*"
   , "optionall": "*"
   , "request": "*"
-  , "websocket": "*"
+  , "bluebird": "*"
   , "moment": "*"
   , "moment-timezone": "*"
   , "winston": "*"
@@ -47,6 +47,6 @@
   , "socket.io": "*"
   , "websocket": "*"
   , "its-thinking": "*"
-  , "viewable": "*"
+  , "viewable": "git+ssh://git@github.com/sackio/viewable.git#master"
   }
 }
