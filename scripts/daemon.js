@@ -7,7 +7,8 @@ var Forever = require('forever-monitor')
   , Async = require('async')
   , _ = require('underscore')
   , OS = require('os')
-  , O = new Optionall({'__dirname': Path.resolve(module.filename + '/../..')
+  , O = new Optionall({
+                       '__dirname': process.env.dirname || Path.resolve(module.filename + '/../..')
                      , 'file_priority': [
                          'package.json'
                        , 'assets.json'
@@ -32,7 +33,7 @@ return Async.waterfall([
     }
 
     for (var i = 0; i < (O.max_cpus ? OS.cpus().length : 1); i++){
-      Servers.push(Forever.start(Path.join(O.__dirname, O[O.name].server), {
+      Servers.push(Forever.start(Path.join(O.__dirname, O.basecmd.server), {
         'env': O.argv || {}
       , 'watch': true
       , 'watchIgnoreDotFiles': true
