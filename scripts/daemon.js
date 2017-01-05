@@ -8,7 +8,14 @@ var Forever = require('forever-monitor')
   , _ = require('underscore')
   , OS = require('os')
   , O = new Optionall({'__dirname': Path.resolve(module.filename + '/../..')
-                     , 'file_priority': ['package.json', 'assets.json', 'settings.json', 'environment.json', 'credentials.json', 'config.json']
+                     , 'file_priority': [
+                         'package.json'
+                       , 'assets.json'
+                       , 'settings.json'
+                       , 'environment.json'
+                       , 'credentials.json'
+                       , 'config.json'
+                       ]
                      })
   , FS = require('fs')
   , Request = require('request')

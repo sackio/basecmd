@@ -29,12 +29,14 @@ Log.add(Winston.transports.Console, {'level': 'debug', 'colorize': true, 'timest
 
 var Spin = new Spinner(4);
 
-O.host = O.host.replace(/https?:\/\//, '');
-
 var GB = _.defaults(O.argv, {
-  'template': _.template(FS.readFileSync(Path.join(O.__dirname, '/resources/assets/nginx.conf.template')).toString('utf8'))
+  'template_path': Path.join(O.__dirname, '/resources/assets/nginx.conf.template')
 , 'config_path': Path.join(O.__dirname, '/resources/config/nginx.' + O.environment + '.conf')
-, 'nginx_path': '/etc/nginx/sites-enabled/' + O.host
+, 'nginx_path': '/etc/nginx/sites-enabled/' + O.domain
+});
+
+GB = _.defaults(O.argv, {
+  'template': _.template(FS.readFileSync(GB.template_path).toString('utf8'))
 });
 
 Spin.start();

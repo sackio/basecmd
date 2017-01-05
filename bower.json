@@ -1,5 +1,5 @@
 {
-  "name": "base",
+  "name": "spark",
   "dependencies": {
     "underscore": "*"
   , "underscore.string": "*"
@@ -12,7 +12,7 @@
   , "bootstrap": "*"
   , "bootbox": "*"
   , "fontawesome": "*"
-  , "bootheel": "git+ssh://git@github.com/sackio/bootheel.git#master"
+  , "bootheel": "*"
   , "query-object": "*"
   },
   "ignore": [

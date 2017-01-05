@@ -2,8 +2,8 @@ server {
   listen 443 ssl;
   server_name <%= host %>;
 
-  ssl_certificate /etc/letsencrypt/live/<%= host %>/fullchain.pem;
-  ssl_certificate_key /etc/letsencrypt/live/<%= host %>/privkey.pem;
+  ssl_certificate /etc/letsencrypt/live/<%= domain %>/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/<%= domain %>/privkey.pem;
 
   ssl_session_cache shared:SSL:50m;
   ssl_session_timeout 5m;
@@ -18,7 +18,7 @@ server {
 
   resolver 8.8.8.8;
   ssl_stapling on;
-  ssl_trusted_certificate /etc/letsencrypt/live/<%= host %>/fullchain.pem;
+  ssl_trusted_certificate /etc/letsencrypt/live/<%= domain %>/fullchain.pem;
 
   client_max_body_size 200M;
 
@@ -46,7 +46,7 @@ server {
 
 server {
   listen 80;
-  server_name <%= host %>;
+  server_name <%= domain %>;
 
   return 301 https://$host$request_uri;
 }

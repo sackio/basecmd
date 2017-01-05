@@ -1,7 +1,6 @@
 {
-  "name": "base",
-  "version": "0.0.1",
-  "main": "lib/daemon",
+  "name": "spark",
+  "version": "0.0.2",
   "engines": {
     "node": ">= 0.8.0"
   },
@@ -47,6 +46,6 @@
   , "socket.io": "*"
   , "websocket": "*"
   , "its-thinking": "*"
-  , "viewable": "git+ssh://git@github.com/sackio/viewable.git#master"
+  , "viewable": "*"
   }
 }
