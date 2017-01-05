@@ -1,5 +1,5 @@
 {
-  "name": "spark",
+  "name": "basecmd",
   "dependencies": {
     "underscore": "*"
   , "underscore.string": "*"

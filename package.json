@@ -1,6 +1,6 @@
 {
-  "name": "spark",
-  "version": "0.0.2",
+  "name": "basecmd",
+  "version": "0.0.3",
   "engines": {
     "node": ">= 0.8.0"
   },

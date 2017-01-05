@@ -32,7 +32,7 @@ return Async.waterfall([
     }
 
     for (var i = 0; i < (O.max_cpus ? OS.cpus().length : 1); i++){
-      Servers.push(Forever.start(Path.join(O.__dirname, '/lib/server.js'), {
+      Servers.push(Forever.start(Path.join(O.__dirname, O[O.name].server), {
         'env': O.argv || {}
       , 'watch': true
       , 'watchIgnoreDotFiles': true
