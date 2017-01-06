@@ -15,7 +15,7 @@ var Path = require('path')
 ;
 
 var O = new Optionall({
-                       '__dirname': Path.resolve(module.filename + '/../..')
+                       '__dirname': process.env.rootdir || Path.resolve(module.filename + '/../..')
                      , 'file_priority': [
                          'package.json'
                        , 'environment.json'
