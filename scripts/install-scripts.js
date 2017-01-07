@@ -31,7 +31,7 @@ var Spin = new Spinner(4);
 
 var GB = _.defaults(O.argv, {
   'server_path': Path.join(O.__dirname, '/node_modules/basecmd/lib/server.js')
-  'daemon_path': Path.join(O.__dirname, '/node_modules/basecmd/scripts/daemon.js')
+, 'daemon_path': Path.join(O.__dirname, '/node_modules/basecmd/scripts/daemon.js')
 });
 
 Spin.start();
