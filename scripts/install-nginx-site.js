@@ -15,7 +15,7 @@ var Path = require('path')
 ;
 
 var O = new Optionall({
-                       '__dirname': process.env.rootdir || Path.resolve(module.filename + '/../..')
+                       '__dirname': process.env.rootdir || process.cwd()
                      , 'file_priority': [
                          'package.json'
                        , 'environment.json'
@@ -33,6 +33,7 @@ var GB = _.defaults(O.argv, {
   'template_path': Path.join(O.__dirname, '/resources/assets/nginx.conf.template')
 , 'config_path': Path.join(O.__dirname, '/resources/config/nginx.' + O.environment + '.conf')
 , 'nginx_path': '/etc/nginx/sites-enabled/' + O.domain
+, 'install_nginx_conf': true
 });
 
 GB = _.defaults(O.argv, {
@@ -44,7 +45,7 @@ Spin.start();
 Async.waterfall([
   function(cb){
     FS.writeFileSync(GB.config_path, GB.template(O));
-    CP.execSync('sudo ln -sf "' + GB.config_path + '" "' + GB.nginx_path + '"');
+    if (GB.install_nginx_conf) CP.execSync('sudo ln -sf "' + GB.config_path + '" "' + GB.nginx_path + '"');
     return cb();
   }
 ], function(err){
