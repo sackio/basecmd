@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%= Render('head', Locals) %>
+  </head>
+  <body>
+    <div class="<%= typedef container_class !== 'undefined' ? container_class : 'container' %>">
+      <div class="row">
+        <div class="<%= typedef col_class !== 'undefined' ? col_class : 'col-xs-12' %>">
+          <%= Render(view, Locals) %>
+        </div>
+      </div>
+    </div>
+
+
+    <%= Render('javascript', Locals) %>
+  </body>
+</html>
