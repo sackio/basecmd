@@ -32,6 +32,7 @@ var Spin = new Spinner(4);
 var GB = _.defaults(O.argv, {
   'server_path': Path.join(O.__dirname, '/node_modules/basecmd/lib/server.js')
 , 'daemon_path': Path.join(O.__dirname, '/node_modules/basecmd/scripts/daemon.js')
+, 'views_path': Path.join(O.__dirname, '/node_modules/basecmd/lib/views/*')
 });
 
 Spin.start();
@@ -49,6 +50,8 @@ Async.waterfall([
     CP.execSync('mkdir -p "' + Path.join(O.__dirname, './public/css') + '"');
     CP.execSync('mkdir -p "' + Path.join(O.__dirname, './public/fonts') + '"');
     CP.execSync('mkdir -p "' + Path.join(O.__dirname, './public/assets') + '"');
+
+    CP.execSync('cp -Rf ' + GB.views_path + ' "' + Path.join(O.__dirname, './lib/views') + '"');
 
     CP.execSync('ln -sf "' + GB.server_path + '" "' + Path.join(O.__dirname, './lib/server.js') + '"');
     CP.execSync('ln -sf "' + GB.daemon_path + '" "' + Path.join(O.__dirname, './scripts/daemon.js') + '"');
