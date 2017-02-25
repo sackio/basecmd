@@ -40,6 +40,8 @@ GB = _.defaults(O.argv, {
   'template': _.template(FS.readFileSync(GB.template_path).toString('utf8'))
 });
 
+GB['install_nginx_conf'] = Belt.cast(GB.install_nginx_conf, 'boolean');
+
 Spin.start();
 
 Async.waterfall([
