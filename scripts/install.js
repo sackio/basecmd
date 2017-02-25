@@ -33,6 +33,7 @@ var GB = _.defaults(O.argv, {
   'server_path': Path.join(O.__dirname, '/node_modules/basecmd/lib/server.js')
 , 'daemon_path': Path.join(O.__dirname, '/node_modules/basecmd/scripts/daemon.js')
 , 'views_path': Path.join(O.__dirname, '/node_modules/basecmd/lib/views/*')
+, 'scripts_path': Path.join(O.__dirname, '/node_modules/basecmd/scripts/*')
 });
 
 Spin.start();
@@ -55,6 +56,8 @@ Async.waterfall([
 
     CP.execSync('ln -sf "' + GB.server_path + '" "' + Path.join(O.__dirname, './lib/server.js') + '"');
     CP.execSync('ln -sf "' + GB.daemon_path + '" "' + Path.join(O.__dirname, './scripts/daemon.js') + '"');
+
+    CP.execSync('ln -sf ' + GB.scripts_path + ' "' + Path.join(O.__dirname, './scripts') + '"');
 
     return cb();
   }
