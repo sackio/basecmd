@@ -53,11 +53,14 @@ Async.waterfall([
     CP.execSync('mkdir -p "' + Path.join(O.__dirname, './public/assets') + '"');
 
     CP.execSync('cp -Rf ' + GB.views_path + ' "' + Path.join(O.__dirname, './lib/views') + '"');
+    CP.execSync('cp -Rf "' + GB.server_path + '" "' + Path.join(O.__dirname, './lib/server.js') + '"');
+    CP.execSync('cp -Rf ' + GB.scripts_path + ' "' + Path.join(O.__dirname, './scripts') + '"');
 
+/*
     CP.execSync('ln -sf "' + GB.server_path + '" "' + Path.join(O.__dirname, './lib/server.js') + '"');
     CP.execSync('ln -sf "' + GB.daemon_path + '" "' + Path.join(O.__dirname, './scripts/daemon.js') + '"');
-
     CP.execSync('ln -sf ' + GB.scripts_path + ' "' + Path.join(O.__dirname, './scripts') + '"');
+*/
 
     return cb();
   }
