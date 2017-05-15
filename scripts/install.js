@@ -49,7 +49,7 @@ Async.waterfall([
     CP.exec('mkdir -p "' + Path.join(O.__dirname, './lib/helpers') + '"', Belt.cw(cb));
   }
 , function(cb){
-    CP.exec('mkdir -p "' + Path.join(O.__dirname, './lib/views') + '"');
+    CP.exec('mkdir -p "' + Path.join(O.__dirname, './lib/views') + '"', Belt.cw(cb));
   }
 , function(cb){
     CP.exec('mkdir -p "' + Path.join(O.__dirname, './resources/assets') + '"', Belt.cw(cb));
