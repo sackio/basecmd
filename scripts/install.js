@@ -40,29 +40,46 @@ Spin.start();
 
 Async.waterfall([
   function(cb){
-    CP.execSync('mkdir -p "' + Path.join(O.__dirname, './lib/models/helpers') + '"');
-    CP.execSync('mkdir -p "' + Path.join(O.__dirname, './lib/controllers/helpers') + '"');
-    CP.execSync('mkdir -p "' + Path.join(O.__dirname, './lib/helpers') + '"');
-    CP.execSync('mkdir -p "' + Path.join(O.__dirname, './lib/views') + '"');
-    CP.execSync('mkdir -p "' + Path.join(O.__dirname, './resources/assets') + '"');
-    CP.execSync('mkdir -p "' + Path.join(O.__dirname, './resources/config') + '"');
-    CP.execSync('mkdir -p "' + Path.join(O.__dirname, './scripts') + '"');
-    CP.execSync('mkdir -p "' + Path.join(O.__dirname, './public/js/views') + '"');
-    CP.execSync('mkdir -p "' + Path.join(O.__dirname, './public/css') + '"');
-    CP.execSync('mkdir -p "' + Path.join(O.__dirname, './public/fonts') + '"');
-    CP.execSync('mkdir -p "' + Path.join(O.__dirname, './public/assets') + '"');
-
-    CP.execSync('cp -Rf ' + GB.views_path + ' "' + Path.join(O.__dirname, './lib/views') + '"');
-    CP.execSync('cp -Rf "' + GB.server_path + '" "' + Path.join(O.__dirname, './lib/server.js') + '"');
-    CP.execSync('cp -Rf ' + GB.scripts_path + ' "' + Path.join(O.__dirname, './scripts') + '"');
-
-/*
-    CP.execSync('ln -sf "' + GB.server_path + '" "' + Path.join(O.__dirname, './lib/server.js') + '"');
-    CP.execSync('ln -sf "' + GB.daemon_path + '" "' + Path.join(O.__dirname, './scripts/daemon.js') + '"');
-    CP.execSync('ln -sf ' + GB.scripts_path + ' "' + Path.join(O.__dirname, './scripts') + '"');
-*/
-
-    return cb();
+    CP.exec('mkdir -p "' + Path.join(O.__dirname, './lib/models/helpers') + '"', Belt.cw(cb));
+  }
+, function(cb){
+    CP.exec('mkdir -p "' + Path.join(O.__dirname, './lib/controllers/helpers') + '"', Belt.cw(cb));
+  }
+, function(cb){
+    CP.exec('mkdir -p "' + Path.join(O.__dirname, './lib/helpers') + '"', Belt.cw(cb));
+  }
+, function(cb){
+    CP.exec('mkdir -p "' + Path.join(O.__dirname, './lib/views') + '"');
+  }
+, function(cb){
+    CP.exec('mkdir -p "' + Path.join(O.__dirname, './resources/assets') + '"', Belt.cw(cb));
+  }
+, function(cb){
+    CP.exec('mkdir -p "' + Path.join(O.__dirname, './resources/config') + '"', Belt.cw(cb));
+  }
+, function(cb){
+    CP.exec('mkdir -p "' + Path.join(O.__dirname, './scripts') + '"', Belt.cw(cb));
+  }
+, function(cb){
+    CP.exec('mkdir -p "' + Path.join(O.__dirname, './public/js/views') + '"', Belt.cw(cb));
+  }
+, function(cb){
+    CP.exec('mkdir -p "' + Path.join(O.__dirname, './public/css') + '"', Belt.cw(cb));
+  }
+, function(cb){
+    CP.exec('mkdir -p "' + Path.join(O.__dirname, './public/fonts') + '"', Belt.cw(cb));
+  }
+, function(cb){
+    CP.exec('mkdir -p "' + Path.join(O.__dirname, './public/assets') + '"', Belt.cw(cb));
+  }
+, function(cb){
+    CP.exec('cp -Rf ' + GB.views_path + ' "' + Path.join(O.__dirname, './lib/views') + '"', Belt.cw(cb));
+  }
+, function(cb){
+    CP.exec('cp -Rf "' + GB.server_path + '" "' + Path.join(O.__dirname, './lib/server.js') + '"', Belt.cw(cb));
+  }
+, function(cb){
+    CP.exec('cp -Rf ' + GB.scripts_path + ' "' + Path.join(O.__dirname, './scripts') + '"', Belt.cw(cb));
   }
 ], function(err){
   Spin.stop();
