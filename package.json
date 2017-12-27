@@ -38,7 +38,7 @@
   , "serve-favicon": "*"
   , "forever-monitor": "*"
   , "basic-auth": "*"
-  , "mongodb": "*"
+  , "mongodb": "2.*"
   , "mongoose": "*"
   , "redis": "*"
   , "nodemailer": "*"
