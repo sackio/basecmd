@@ -1,6 +1,6 @@
 {
   "name": "basecmd",
-  "version": "0.1.22",
+  "version": "0.1.23",
   "engines": {
     "node": ">= 0.8.0"
   },
@@ -46,6 +46,6 @@
   , "socket.io": "2.0.4"
   , "websocket": "1.0.25"
   , "its-thinking": "0.0.4"
-  , "viewable": "2.0.1"
+  , "viewable": "2.1.4"
   }
 }
